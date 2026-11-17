@@ -5,6 +5,8 @@ on:
     outputs:
       greeting:
         value: ${{ jobs.say.outputs.greeting }}
+      get:
+        value: ${{ jobs.say2.outputs.get }}
 
 jobs:
   say:
@@ -14,4 +16,12 @@ jobs:
     steps:
       - id: msg
         run: echo "text=hello" >> $GITHUB_OUTPUT
-      - run: echo "staring hello"
+      
+  say2:
+    runs-on: ubuntu-latest
+    outputs:
+      get: ${{ steps.msg2.outputs.text }}
+    steps:
+      - id: msg2
+        run: echo "text=hi" >> $GITHUB
+      - run: echo "sahmed" >> $git

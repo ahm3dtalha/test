@@ -16,6 +16,6 @@ jobs:
     steps:
       - name: Print multiple passed values
         run: |
-          echo "Received greeting: ${{ inputs.passed_greeting }}"
+          echo "Received words: ${{ inputs.passed_greeting }}"
           echo "Received name: ${{ inputs.passed_name }}"
           echo "Combined: ${{ inputs.passed_greeting }} ${{ inputs.passed_name }}!"

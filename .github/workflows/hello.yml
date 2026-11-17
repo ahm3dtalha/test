@@ -13,5 +13,5 @@ jobs:
       greeting: ${{ steps.msg.outputs.text }}
     steps:
       - id: msg
-        run: echo "text=مرحبا" >> $GITHUB_OUTPUT
-      - run: echo "الأول يقول مرحبا"
+        run: echo "text=hello" >> $GITHUB_OUTPUT
+      - run: echo "staring hello"

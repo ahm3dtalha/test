@@ -7,20 +7,20 @@ jobs:
   produce_data:
     runs-on: ubuntu-latest
     outputs:
-      my_greeting: ${{ steps.set_values.outputs.greeting }}
-      my_name: ${{ steps.set_values.outputs.target_name }}
+      my_words: ${{ steps.set_values.outputs.hello }}
+      my_name: ${{ steps.set_values.outputs.name }}
     
     steps:
       - name: Set multiple values
         id: set_values
         run: |
-          echo "greeting=Hello" >> $GITHUB_OUTPUT
-          echo "target_name=World" >> $GITHUB_OUTPUT
+          echo "hello=hi" >> $GITHUB_OUTPUT
+          echo "name=ahmed" >> $GITHUB_OUTPUT
 
   # استدعاء الـ Workflow الثاني وتمرير القيم إليه
   call_receiver:
     needs: produce_data
     uses: ./.github/workflows/receiver.yml
     with:
-      passed_greeting: ${{ needs.produce_data.outputs.my_greeting }}
+      passed_greeting: ${{ needs.produce_data.outputs.my_words }}
       passed_name: ${{ needs.produce_data.outputs.my_name }}

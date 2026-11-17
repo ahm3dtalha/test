@@ -1,0 +1,17 @@
+name: Hello
+
+on:
+  workflow_call:
+    outputs:
+      greeting:
+        value: ${{ jobs.say.outputs.greeting }}
+
+jobs:
+  say:
+    runs-on: ubuntu-latest
+    outputs:
+      greeting: ${{ steps.msg.outputs.text }}
+    steps:
+      - id: msg
+        run: echo "text=مرحبا" >> $GITHUB_OUTPUT
+      - run: echo "الأول يقول مرحبا"

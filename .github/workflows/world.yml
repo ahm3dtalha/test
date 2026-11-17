@@ -11,4 +11,5 @@ jobs:
     needs: first
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ needs.first.outputs.greeting }} world"
+      - run: |
+        echo "${{ needs.first.outputs.getting }} world"

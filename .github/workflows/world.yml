@@ -1,0 +1,14 @@
+name: World
+
+on:
+  workflow_dispatch:
+
+jobs:
+  first:
+    uses: ./.github/workflows/hello.yml
+
+  second:
+    needs: first
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ needs.first.outputs.greeting }} بالعالم"

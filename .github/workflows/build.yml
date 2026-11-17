@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      image_tag:
+        type: string
+        required: true
+    outputs:
+      image_uri:
+        value: ${{ jobs.build.outputs.image_uri }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      image_uri: ${{ steps.meta.outputs.uri }}
+    steps:
+      - id: meta
+        run: echo "uri=sarahah:${{ inputs.image_tag }}" >> $GITHUB_OUTPUT
+      - run: echo "تم بناء sarahah:${{ inputs.image_tag }}"

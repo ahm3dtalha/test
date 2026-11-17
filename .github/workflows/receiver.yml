@@ -1,0 +1,21 @@
+name: Receiver Workflow
+
+on:
+  workflow_call:
+    inputs:
+      passed_greeting:
+        required: true
+        type: string
+      passed_name:
+        required: true
+        type: string
+
+jobs:
+  consume_data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print multiple passed values
+        run: |
+          echo "Received greeting: ${{ inputs.passed_greeting }}"
+          echo "Received name: ${{ inputs.passed_name }}"
+          echo "Combined: ${{ inputs.passed_greeting }} ${{ inputs.passed_name }}!"

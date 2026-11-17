@@ -9,6 +9,10 @@ on:
       passed_name:
         required: true
         type: string
+      passed_parent:
+        required: true
+        type: string
+
 
 jobs:
   consume_data:
@@ -18,4 +22,5 @@ jobs:
         run: |
           echo "Received words: ${{ inputs.passed_greeting }}"
           echo "Received name: ${{ inputs.passed_name }}"
-          echo "Combined: ${{ inputs.passed_greeting }} ${{ inputs.passed_name }}!"
+          echo "Received parent: ${{ inputs.passed_parent }}"
+          echo "Combined: ${{ inputs.passed_greeting }} ${{ inputs.passed_name }} ${{ inputs.passed_parent }} !"

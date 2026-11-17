@@ -17,6 +17,6 @@ jobs:
       - id: msg2
         run: |
           echo "text=hello ahmed " >> $GITHUB_OUTPUT
-          echo "hi ahmed" >> $hi
+          echo "hi ahmed" >>  $GITHUB_OUTPUT
         
   

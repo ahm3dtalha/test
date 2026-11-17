@@ -9,6 +9,7 @@ jobs:
     outputs:
       my_words: ${{ steps.set_values.outputs.hello }}
       my_name: ${{ steps.set_values.outputs.name }}
+      my_parent: ${{ steps.set_values.outputs.parent }}
     
     steps:
       - name: Set multiple values
@@ -16,6 +17,7 @@ jobs:
         run: |
           echo "hello=hi" >> $GITHUB_OUTPUT
           echo "name=ahmed" >> $GITHUB_OUTPUT
+          echo "parent=talha" >> $GITHUB_OUTPUT
 
   # استدعاء الـ Workflow الثاني وتمرير القيم إليه
   call_receiver:
@@ -24,3 +26,4 @@ jobs:
     with:
       passed_greeting: ${{ needs.produce_data.outputs.my_words }}
       passed_name: ${{ needs.produce_data.outputs.my_name }}
+      passed_parent: ${{ needs.produce_data.outputs.my_parent }}
